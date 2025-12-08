@@ -243,10 +243,59 @@ class LiteBokz {
         // --- Detect zoom ---
         this.shadow.addEventListener('wheel', e => this.zoom(e), {passive: false})
 
+        // --- Mobile zoom ---
+        let initialDistance = 0
+
+        function getDistance(touches) {
+            const [a, b] = touches
+            const dx = a.screenX - b.screenX
+            const dy = a.screenY - b.screenY
+            return Math.hypot(dx, dy)
+        }
+
+        function getMidpoint(touches) {
+            const [a, b] = touches
+            return {
+                x: (a.clientX + b.clientX) / 2,
+                y: (a.clientY + b.clientY) / 2
+            }
+        }
+
+        this.shadow.addEventListener('touchstart', e => {
+            if (e.touches.length == 2) initialDistance = getDistance(e.touches)
+        }, {passive: false})
+
+        this.shadow.addEventListener('touchmove', e => {
+            if (e.touches.length == 2) {
+                const distance = getDistance(e.touches)
+                const dist = (initialDistance - distance) * 5
+                const pos = getMidpoint(e.touches)
+
+                // Zoom into center overrides position
+                pos.x = innerWidth / 2
+                pos.y = innerHeight / 2
+
+                this.zoom({
+                    clientX: pos.x,
+                    clientY: pos.y,
+                    deltaY: dist
+                })
+                e.preventDefault()
+
+                initialDistance = distance
+            }
+        }, {passive: false})
+
+        this.shadow.addEventListener('touchend', e => {
+            if (e.touches.length < 2) {
+            }
+        })
+
         // --- Detect dragging ---
         let mouseDown = false
         let startX = 0
         let startY = 0
+        let activePointerId = null
 
         // Swiping images
         let isSwiping = null
@@ -335,10 +384,12 @@ class LiteBokz {
             mouseDown = true
             startX = e.clientX
             startY = e.clientY
+
+            if ('pointerId' in e) activePointerId = e.pointerId
         })
         this.mouseMove(this.displayHold, e => {
-            if (!mouseDown)
-                return
+            if (!mouseDown) return
+            if ('pointerId' in e && e.pointerId != activePointerId) return
 
             const x = e.clientX
             const y = e.clientY
@@ -363,6 +414,7 @@ class LiteBokz {
         })
         this.mouseUp(window, e => {
             mouseDown = false
+            activePointerId = null
 
             // Decide if we should switch
             if (isSwiping) {
@@ -382,17 +434,13 @@ class LiteBokz {
     click = (el, cb = () => {}) => {
         if (!el) return
         const ev =
-            'onpointerdown' in window ? 'pointerdown' :
-            'ontouchstart' in window ? 'touchstart' :
             'onmousedown' in window ? 'mousedown' :
             'click'
         el.addEventListener(ev, cb)
     }
     clickOverride = (el, cb = () => {}) => {
         if (!el) return
-        if ('onpointerdown' in window) el.onpointerdown = cb
-        else if ('ontouchstart' in window) el.ontouchstart = cb
-        else if ('onmousedown' in window) el.onmousedown = cb
+        if ('onmousedown' in window) el.onmousedown = cb
         else el.onclick = cb
     }
 
@@ -481,7 +529,7 @@ class LiteBokz {
 
     zoom(e) {
         if (e.ctrlKey) e.preventDefault()
-        if (!this.imageHolder || !this.image) return
+        if (!this.imageHolder || !this.image || this.isFitting) return
 
         const box = this.displayHold.getBoundingClientRect()
         const imgCenterPx = box.y + box.height / 2
@@ -495,6 +543,7 @@ class LiteBokz {
         const oldZoom = this.zoomAmt
         let newZoom = this.zoomAmt + this.zoomAmt * zoomDelta
         newZoom = this.capZoom(newZoom)
+
         if (newZoom == oldZoom) {
             this.updateDisplay()
             return
@@ -614,9 +663,14 @@ class LiteBokz {
         if (index > 0) {
             this.navLeft.classList.remove('hidden')
             this.clickOverride(this.navLeft, () => {
-                this.image.classList.add('right')
-                this.image = this.leftTemplateImg
-                this.selectImage(this.leftGoalImg)
+                if (this.zoomAmt > 1) {
+                    this.fitToScreen()
+                }
+                else {
+                    this.image.classList.add('right')
+                    this.image = this.leftTemplateImg
+                    this.selectImage(this.leftGoalImg)
+                }
             })
         }
         else {
@@ -627,9 +681,14 @@ class LiteBokz {
         if (index < section.length - 1) {
             this.navRight.classList.remove('hidden')
             this.clickOverride(this.navRight, () => {
-                this.image.classList.add('left')
-                this.image = this.rightTemplateImg
-                this.selectImage(this.rightGoalImg)
+                if (this.zoomAmt > 1) {
+                    this.fitToScreen()
+                }
+                else {
+                    this.image.classList.add('left')
+                    this.image = this.rightTemplateImg
+                    this.selectImage(this.rightGoalImg)
+                }
             })
         }
         else {
@@ -727,6 +786,31 @@ class LiteBokz {
         .replace(/-+/g, '-') // collapse dashes
         .replace(/^-|-$/g, '') // trim ends
         .toLowerCase()
+    }
+
+    fitToScreen() {
+        const update = () => {
+            const speed = .7
+            this.zoomAmt += (1 - this.zoomAmt) * (1 - speed)
+            this.camX *= speed
+            this.camY *= speed
+
+            if (this.roundToDec(this.zoomAmt - 1, 1) ||
+                this.roundToDec(this.camX, 1) ||
+                this.roundToDec(this.camY, 1))
+                this.isFitting = requestAnimationFrame(update)
+
+            else {
+                this.zoomAmt = 1
+                this.camX = 0
+                this.camY = 0
+                this.isFitting = null
+            }
+
+            this.updateDisplay()
+        }
+
+        if (!this.isFitting) update()
     }
 
     generate() {
@@ -1357,9 +1441,7 @@ class LiteBokz {
             document.body.removeChild(a)
         })
         this.click(this.fitBtn, () => {
-            this.zoomAmt = 1
-            this.camX = 0
-            this.camY = 0
+            this.fitToScreen()
             this.fitBtn.classList.add('disable')
             this.updateDisplay()
         })
