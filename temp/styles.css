@@ -1,0 +1,206 @@
+@font-face {
+    font-family: "regular";
+    src: url("Exo/Exo2.0-Black.otf") format("opentype");
+    font-display: swap;
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "regular";
+    src: url("Exo/Exo2.0-Regular.otf") format("opentype");
+    font-display: swap;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "regular";
+    src: url("Exo/Exo2.0-Thin.otf") format("opentype");
+    font-display: swap;
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: "mono";
+    src: url("SpaceGrotesk-2.0.0/ttf/SpaceGroteskWght.ttf") format("truetype");
+    font-display: swap;
+}
+
+:root {
+    --width-1: 900px;
+    --width-2: 1000px;
+    --padding: 50px;
+    font-size: 20px;
+
+    --h1: 100px;
+    --h2: 80px;
+    --h3: 60px;
+    --h4: 45px;
+    --h5: 30px;
+    --h6: 22px;
+
+    --h7: 18px;
+    --h8: 15px;
+    --h9: 13px;
+
+    --size-1: 10px;
+    --size-2: 20px;
+    --size-3: 40px;
+    --size-4: 60px;
+
+    --hue: 230;
+    --accent: 30;
+
+    --root: #000;
+    --root-invert: #fff;
+    --txt-1: hsl(var(--hue), 50%, 90%);
+    --bg-1: hsl(var(--hue), 20%, 10%);
+    --bg-1-light-1: hsl(var(--hue), 20%, 12%);
+    --bg-1-light-2: hsl(var(--hue), 20%, 15%);
+    --bg-2: hsl(calc(var(--hue) + 50), 30%, 20%);
+    --bg-3: hsl(var(--hue), 30%, 5%);
+    --bg-3-light-1: hsl(var(--hue), 30%, 10%);
+    --fg-1: hsl(var(--hue), 40%, 50%);
+    --fg-1-light-1: hsl(var(--hue), 40%, 60%);
+    --acc-1: hsl(var(--accent), 80%, 60%);
+    --acc-2: hsl(var(--hue), 90%, 75%);
+}
+
+::selection {
+    background-color: var(--txt-1);
+    color: var(--root)
+}
+
+* {
+    box-sizing: border-box;
+    line-height: normal;
+}
+
+html {
+    display: flex;
+    justify-content: center;
+    scroll-behavior: smooth;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: regular, arial;
+    background-color: var(--root);
+    color: var(--txt-1)
+}
+
+main {
+    width: var(--width-2);
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+p {
+    margin: 0;
+    line-height: 2;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    line-height: 1;
+}
+
+h1, h2 {
+    text-align: center;
+    display: flex;
+    gap: 30px;
+}
+
+h1 span, h2 span {
+    flex: 1 1 0;
+    width: 100%;
+    height: 3px;
+    align-self: center;
+    border-radius: 10px;
+}
+
+h1 span:first-child, h2 span:first-child {
+    background-image: linear-gradient(-90deg, var(--fg-1) 0, transparent 100%);
+}
+
+h1 span:last-child, h2 span:last-child {
+    background-image: linear-gradient(90deg, var(--fg-1) 0, transparent 100%);
+}
+
+.mt1 {margin-top: var(--size-1)}
+.mt2 {margin-top: var(--size-2)}
+.mt3 {margin-top: var(--size-3)}
+.mt4 {margin-top: var(--size-4)}
+
+.mb1 {margin-bottom: var(--size-1)}
+.mb2 {margin-bottom: var(--size-2)}
+.mb3 {margin-bottom: var(--size-3)}
+.mb4 {margin-bottom: var(--size-4)}
+
+.pt1 {padding-top: var(--size-1)}
+.pt2 {padding-top: var(--size-2)}
+.pt3 {padding-top: var(--size-3)}
+.pt4 {padding-top: var(--size-4)}
+
+.pb1 {padding-bottom: var(--size-1)}
+.pb2 {padding-bottom: var(--size-2)}
+.pb3 {padding-bottom: var(--size-3)}
+.pb4 {padding-bottom: var(--size-4)}
+
+.g1 {gap: var(--size-1)}
+.g2 {gap: var(--size-2)}
+.g3 {gap: var(--size-3)}
+.g4 {gap: var(--size-4)}
+
+.h1 {font-size: var(--h1)}
+.h2 {font-size: var(--h2)}
+.h3 {font-size: var(--h3)}
+.h4 {font-size: var(--h4)}
+.h5 {font-size: var(--h5)}
+.h6 {font-size: var(--h6)}
+
+.font-size {font-size: 1rem}
+
+.h7 {font-size: var(--h7)}
+.h8 {font-size: var(--h8)}
+.h9 {font-size: var(--h9)}
+
+.bold {font-weight: bold}
+.normal {font-weight: normal}
+.thin {font-weight: 100}
+
+b {
+    color: var(--acc-1);
+    font-weight: inherit;
+}
+
+.bg-1 {background-color: var(--bg-1)}
+.bg-2 {background-color: var(--bg-2)}
+.bg-3 {background-color: var(--bg-3)}
+.fg-1 {background-color: var(--fg-1)}
+.fg-1-light {background-color: var(--fg-1-light)}
+
+.width-1 {
+    width: 100%;
+    max-width: var(--width-1);
+    margin: 0 auto;
+}
+
+.padded {
+    padding: 0 var(--padding);
+}
+.width {width: 100%}
+.stacked, .side-by-side {display: flex}
+.stacked {flex-direction: column}
+.align-center {align-items: center}
+.justify-center {justify-content: center}
+.text-center {text-align: center}

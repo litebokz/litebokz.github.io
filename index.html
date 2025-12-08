@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = viewport content = 'width=device-width, initial-scale=1.0'>
+        <meta name = "description" content = "
+            Your modern, clean and minimal JavaScript
+            lightbox library for viewing images. Embed it into any
+            HTML website for instant image previewing">
+        <title>LightBokz.js | image previewer that's actually light</title>
+
+        <meta name = author content = "Joachim Ford">
+        <meta property = "og:title" content = "LightBokz.js | image previewer that's actually light">
+        <meta property = "og:description" content = "
+            Your modern, clean and minimal JavaScript
+            library for viewing images. Embed it into any
+            HTML website for instant image previewing">
+        <meta property = "og:image" content = "https://sites.joachimford.uk/litebokz.jpg">
+
+        <link rel="icon" type="image/png" href="fav/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="fav/favicon.svg" />
+        <link rel="shortcut icon" href="fav/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="fav/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-title" content="LiteBokz.js" />
+        <link rel="manifest" href="fav/site.webmanifest" />
+
+        <link rel="stylesheet" href="temp/styles.css">
+        <link rel="stylesheet" href="temp/content.css">
+
+        <script src="litebokz.js"></script>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+        <script>0</script>
+    </head>
+    <body>
+        <main>
+            <div class="hero">
+                <div class="hero-content">
+                    <div class="hero-title">
+                        <div class="hero-logo">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="7 4.5 7 7">
+                                <mask id="mask1">
+                                    <path d="M7 8A1 1 0 0014 8 1 1 0 007 8M11.6 5.7C12.6 5.7 13.6 7.7 12.6 7.7S10.5 5.7 11.6 5.7"
+                                        fill="white"/>
+                                </mask>
+
+                                <path d="M7 8A1 1 0 0014 8 1 1 0 007 8M11.6 5.7C12.6 5.7 13.6 7.7 12.6 7.7S10.5 5.7 11.6 5.7"
+                                fill="var(--fg-1)"/>
+
+                                <path d="M9 4C8 5 7 6 8 8S9.4 9.4 10.1 9.9 8.5 11.3 10.6 11.8C5 13.6 3.1 5.1 9 4"
+                                fill="var(--bg-1)" mask="url(#mask1)"/>
+
+                                <path d="M 9 4.5 C 10.9 4.5 12.5 5.2 12.5 6.9 S 13.6 9 12.5 11 C 17.3 8.9 13.5 2.3 9 4.5"
+                                fill="var(--fg-1-light-1)" mask="url(#mask1)"/>
+                            </svg>
+                        </div>
+                        <span class="h1">
+                            LiteBokz<b><span class="h4">.js</span></b>
+                        </span>
+                    </div>
+                    <span class="thin mt2">
+                        A Lightbox That's Actually Light.
+                    </span>
+                    <div class = "button-hold mt2">
+                        <button class = "button h7 thin">Try it Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class = "main-content pt4 pb3 bg-3">
+                <div class = "width-1 padded stacked">
+                    <h1 class="h4 normal mt2 mb2"><span></span>Fast & Light Image Viewer<span></span></h1>
+                    <div class = "mt3 thin">
+                        <p class = "">
+                            LiteBokz<b>.js</b> is a modern, clean and minimal JavaScript
+                            library for viewing images. You can embed it into any
+                            HTML website for instant image previewing.
+                        </p>
+                    </div>
+
+                    <div class = "img-hold mt3 mb4">
+                        <img data-lb-name="2" class="litebokz img" src = "temp/mountains.jpg" alt="A vectorized image of a road & mountains during sunset.">
+                    </div>
+
+                    <h2 class="h4 normal"><span></span>All Light, no Load<span></span></h2>
+                    <div class = "card mt4 mb4 thin">
+                        <p class = "">
+                            Designed as an alternative to other popular JavaScript
+                            lightbox libraries, LiteBokz<b>.js</b> excels in instant
+                            loading speeds, advanced customization & zero setup.
+                        </p>
+                        <p class="">
+                            The entire library fits in under 5KB zipped.
+                        </p>
+                    </div>
+
+                    <div class = "button-hold stacked width align-center mt2 mb3">
+                        <a href="https://github.com/hope41/litebokz" target="_blank" class = "nice-button h7 thin">
+                            <span>Contribute on GitHub</span>
+                        </a>
+                        <div class = "thin h7 mt2">consider dropping us a star!</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class = "main-content pt4 pb4 bg-1">
+                <div class = "width-1 padded stacked">
+                    <h2 class="h4 normal mt3 mb4"><span></span>How it works<span></span></h2>
+                    <div class = "stacked g3 pb4">
+                        <div class = "card side-by-side g2 thin">
+                            <div class = "step">1</div>
+                            <div class="width pt1 pb1 stacked g1">
+                                <h3 class="h5 normal">Link to LiteBokz<b>.js</b></h3>
+                                <p class = "">
+                                    LiteBokz<b>.js</b> requires no download.
+                                    Just insert the following code inside the
+                                    <span class="snip">&lt;head></span> element.
+                                </p>
+                                <div class = "code-block">
+                                    <code>
+                                        &lt;script src="path/to/litebokz.js">&lt;/script>
+                                    </code>
+                                    <button class="code-button" id="copy">
+                                        <div class = "icon-hold">
+                                            <svg class = "icon" xmlns="http://www.w3.org/2000/svg" viewBox="0.75 0.75 1.5 1.5">
+                                                <path d="M 1 1.3 L 1 2 L 1.7 2 L 1.7 1.3 Z M 1.9 1.7 L 2 1.7 L 2 1 L 1.3 1 L 1.3 1.1"
+                                                    stroke="var(--txt-1)" stroke-width=".15" fill="none"/>
+                                            </svg>
+                                            <svg class = "icon none" xmlns="http://www.w3.org/2000/svg" viewBox="0.75 0.75 1.5 1.5">
+                                                <path d="M 1.1 1.6 L 1.4 1.9 L 1.9 1.1"
+                                                    stroke="var(--acc-1)" stroke-width=".15" fill="none"/>
+                                            </svg>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "card side-by-side g2 thin">
+                            <div class = "step">2</div>
+                            <div class="width pt1 pb1">
+                                <h3 class="h5 normal mb1">Choose your images</h3>
+                                <p class = "">
+                                    Just add the <span class="snip">"litebokz"</span>
+                                    class to any image for instant results.
+                                </p>
+                            </div>
+                        </div>
+                        <div class = "card side-by-side g2 thin">
+                            <div class = "step">3</div>
+                            <div class="width pt1 pb1">
+                                <h3 class="h5 normal mb1">Customize your LiteBokz</h3>
+                                <p class = "">
+                                    LightBokz has been built with full customization
+                                    in mind. From creating color themes to
+                                    organizing the UI, we've achieved maximum
+                                    flexibility with minimal code.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class = "main-content pt4 pb4 bg-3">
+                <div class = "width-1 padded stacked">
+                    <h2 class="h4 normal mt3 mb4"><span></span>Example gallery<span></span></h2>
+                    <div class = "gallery g3 pb4">
+                        <div class = "gallery-item litebokz" data-lb-name="1">
+                            <div class = "gallery-img"><img draggable="false" src="temp/space.jpg"></div>
+                        </div>
+                        <div class = "gallery-item litebokz" data-lb-name="1">
+                            <div class = "gallery-img"><img draggable="false" src="temp/dust.png"></div>
+                        </div>
+                        <div class = "gallery-item litebokz" data-lb-name="1">
+                            <div class = "gallery-img"><img draggable="false" src="temp/fire.png"></div>
+                        </div>
+                        <div class = "gallery-item litebokz" data-lb-name="1">
+                            <div class = "gallery-img"><img draggable="false" src="temp/mountains.jpg"></div>
+                        </div>
+                        <div class = "gallery-item litebokz" data-lb-name="1">
+                            <div class = "gallery-img"><img draggable="false" src="temp/sun.png"></div>
+                        </div>
+                        <div class = "gallery-item litebokz" data-lb-name="1">
+                            <div class = "gallery-img"><img draggable="false" src="temp/fish.jpg"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class = "main-content pt4 pb4 bg-1">
+                <div class = "width-1 padded stacked">
+                    <h2 class="h4 normal mt3 mb4"><span></span>Why Choose LiteBokz<span></span></h2>
+                    <div class = "stacked g3 pb4">
+                        <div class = "card side-by-side g2 thin">
+                            <div class = "step"><i class="fa-solid fa-box"></i></div>
+                            <div class="width pt1 pb1 stacked g1">
+                                <h3 class="h5 normal">Lightweight & mobile friendly</b></h3>
+                                <p class = "">
+                                    Perfectly scales to any screen size & layout.
+                                </p>
+                            </div>
+                        </div>
+                        <div class = "card side-by-side g2 thin">
+                            <div class = "step">
+                                <i class="fa-solid fa-hammer"></i>
+                            </div>
+                            <div class="width pt1 pb1">
+                                <h3 class="h5 normal mb1">Fully customizable</h3>
+                                <p class = "">
+                                    Easily add your own color themes, choose how
+                                    images should be displayed, and much more.
+                                </p>
+                            </div>
+                        </div>
+                        <div class = "card side-by-side g2 thin">
+                            <div class = "step"><i class="fa-brands fa-github"></i></div>
+                            <div class="width pt1 pb1">
+                                <h3 class="h5 normal mb1">Free & open source</h3>
+                                <p class = "">
+                                    Litebokz is an open source project built
+                                    for developers looking for an efficient &
+                                    minimal way to display their images.
+
+                                    Feature suggestions & improvements are open
+                                    for discussion on our GitHub.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class = "main-content pt4 pb3 bg-3">
+                <div class = "width-1 padded stacked">
+                    <h2 class="h4 normal mt3 mb4"><span></span>Guide<span></span></h2>
+
+                    <p class = "pb2">
+                        &bull; Organize images using the <span class="snip">name</span>
+                        data attribute. This prevents users from being able to navigate
+                        between separate categories.
+                    </p>
+                    <div class="code-block mb1">
+                        <code>&lt;img class="litebokz" <b>data-lb-name="gamedev-category"</b> src="road.png"></code>
+                    </div>
+                    <div class="code-block mb1">
+                        <code>&lt;img class="litebokz" <b>data-lb-name="pixel-art"</b> src="sun.png"></code>
+                    </div>
+                    <div class="code-block mb3">
+                        <code>&lt;img class="litebokz" <b>data-lb-name="gamedev-category"</b> src="dungeon.png"></code>
+                    </div>
+
+                    <svg class="wide-svg" xmlns="http://www.w3.org/2000/svg" viewBox="-1 2.5 34 4">
+                        <path d="M 2 5 A 0.1 0.1 0 0 0 2 6 A 0.1 0.1 0 0 0 2 5 L 2 4 L 3 3 L 29 3 L 30 4 L 30 5 A 0.1 0.1 0 0 0 30 6 A 0.1 0.1 0 0 0 30 5 M 16 6 L 16 5 A 0.1 0.1 0 0 0 16 4 A 0.1 0.1 0 0 0 16 5" stroke="#000" stroke-width=".5" fill="none"/>
+                    </svg>
+
+                    <div class = "gallery g3">
+                        <div class = "gallery-item litebokz" data-lb-name="4">
+                            <div class = "gallery-img"><img draggable="false" src="temp/road.png"></div>
+                        </div>
+                        <div class = "gallery-item litebokz" data-lb-name="5">
+                            <div class = "gallery-img"><img draggable="false" src="temp/sun.png"></div>
+                        </div>
+                        <div class = "gallery-item litebokz" data-lb-name="4">
+                            <div class = "gallery-img"><img draggable="false" src="temp/dungeon.png"></div>
+                        </div>
+                    </div>
+
+                    <p class = "mt3 pb2">
+                        &bull; Define your thumbnail & main image in just one line.
+                    </p>
+                    <div class = "code-block">
+                        <code>
+                            &lt;img class="litebokz" src="fish-thumbnail.png" <b>data-lb-image="fish.png"</b>>
+                        </code>
+                    </div>
+                    <div class = "img-hold mt2">
+                        <img data-lb-name="3" class="litebokz img small" src = "temp/fish-thumbnail.png" data-lb-image="temp/fish.jpg">
+                    </div>
+
+                    <p class = "mt3 pb2">
+                        &bull; LiteBokz<b>.js</b> automatically uses alt text
+                        as the image description. Users can write
+                        a new description simply by adding the
+                        <span class = "snip">data-lb-alt</span> attribute to the
+                        image element.
+                    </p>
+                    <div class = "code-block">
+                        <code>
+                            &lt;img class="litebokz" src="drawing.png" alt="sketch, OC" <b>data-lb-alt="A weird drawing of a sad guy."</b>>
+                        </code>
+                    </div>
+                    <div class = "img-hold mt2">
+                        <img data-lb-name="6" class="litebokz img small" src = "temp/drawing.jpg" alt="sketch, OC" data-lb-alt="A weird drawing of a sad guy.">
+                    </div>
+
+                    <p class = "mt3 pb2">
+                        &bull; To customize, simply add a new
+                        <span class="snip">&lt;script></span> element called "litebokz"
+                        at the very end of your <span class="snip">&lt;head></span> element.
+                    </p>
+                    <div class = "code-block">
+                        <code>
+                            &lt;script class="litebokz"><br>
+                            &nbsp;<b>// content goes here</b><br>
+                            &lt;/script>
+                        </code>
+                    </div>
+
+                    <p class = "mt3 mb2">
+                        You can customize which tools should be displayed & the layout
+                        using <span class="snip">litebokz.tools</span>.
+                        The displayed order matches the order of the array.
+                    </p>
+
+                    <div class = "items mb3">
+                        <div class = "fake-code-block">
+                            litebokz.tools = [<br>
+                                <a href="#out">'out',</a>
+                                <a href="#in">'in',</a>
+                                <a href="#theme">'theme',</a>
+                                <a href="#download">'download',</a>
+                                <a href="#fit">'fit',</a>
+                                <a href="#full">'full',</a>
+                                <a href="#exit">'exit'</a>
+                            ]
+                        </div>
+                    </div>
+
+                    <p class = "mb2">
+                        You can add as many color themes as you like, using the
+                        <span class="snip">litebokz.themes</span> array.
+                    </p>
+
+                    <div class = "items mb3">
+                        <div class = "fake-code-block">
+                            litebokz.themes = [<br>
+                            &nbsp;&nbsp;{<br><b>
+                            &nbsp;&nbsp;&nbsp;&nbsp;hue: 220,<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;saturate: 20,<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;light: 13,<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;alpha: .7</b><br>
+                            &nbsp;&nbsp;},{<br><b>
+                            &nbsp;&nbsp;&nbsp;&nbsp;hue: 220,<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;saturate: 20,<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;light: 100,<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;alpha: .7</b><br>
+                            &nbsp;&nbsp;}<br>
+                            ]
+                        </div>
+                    </div>
+
+                    <p class = "mb2">
+                        You can customize built-in variables using
+                        <span class="snip">litebokz.settings</span>.
+                    </p>
+
+                    <div class = "items mb4">
+                        <div class = "fake-code-block">
+                            litebokz.settings = {<br>
+                                <a href="#blurOnExit">blurOnExit: false,</a>
+                                <a href="#gestureToZoom">gestureToZoom: true,</a>
+                                <a href="#swipeToSwitchPC">swipeToSwitchPC: true,</a>
+                                <a href="#swipeToSwitchMobile">swipeToSwitchMobile: true,</a>
+                                <a href="#swipeSensitivityPC">swipeSensitivityPC: 10,</a>
+                                <a href="#swipeSensitivityMobile">swipeSensitivityMobile: 5,</a>
+                                <a href="#swipeRangePC">swipeRangePC: .5,</a>
+                                <a href="#swipeRangeMobile">swipeRangeMobile: .5,</a>
+                                <a href="#swipeResistancePC">swipeResistancePC: .4,</a>
+                                <a href="#swipeResistanceMobile">swipeResistanceMobile: 1,</a>
+                                <a href="#hasFooter">hasFooter: true,</a>
+                                <a href="#hasWordmark">hasWordmark: true,</a>
+                                <a href="#tapToHidePanels">tapToHidePanels: false,</a>
+                                <a href="#tapAwayToClose">tapAwayToClose: false,</a>
+                                <a href="#zoomIncrement">zoomIncrement: .15,</a>
+                                <a href="#zoomSpeed">zoomSpeed: .8,</a>
+                                <a href="#zoomMax">zoomMax: 15,</a>
+                                <a href="#zoomMin">zoomMin: 1,</a>
+                                <a href="#renderPixelated">renderPixelated: 700</a>
+                            }
+                        </div>
+                    </div>
+
+                    <h3>Other</h3>
+                    <div class = "items mt2 mb4">
+                        <div class = "item side" id = "out">
+                            <div class = "">
+                                <span class="snip">themeOnChange()</span>
+                            </div>
+                            <p class = "">
+                                This function is run whenever the color theme is
+                                toggled. You can use this function to perform actions
+                                on your website.
+                            </p>
+                        </div>
+                    </div>
+
+                    <h3>Tools Doc</h3>
+                    <div class = "items mt2 mb4">
+                        <div class = "item side" id = "out">
+                            <div class = "">
+                                <span class="snip">out</span>
+                            </div>
+                            <p class = "">
+                                Zoom out.
+                            </p>
+                        </div>
+
+                        <div class = "item side" id = "in">
+                            <div class = "">
+                                <span class="snip">in</span>
+                            </div>
+                            <p class = "">
+                                Zoom in.
+                            </p>
+                        </div>
+
+                        <div class = "item side" id = "theme">
+                            <div class = "">
+                                <span class="snip">theme</span>
+                            </div>
+                            <p class = "">
+                                Change the color theme.
+                            </p>
+                        </div>
+
+                        <div class = "item side" id = "download">
+                            <div class = "">
+                                <span class="snip">download</span>
+                            </div>
+                            <p class = "">
+                                Download the image.
+                            </p>
+                        </div>
+
+                        <div class = "item side" id = "fit">
+                            <div class = "">
+                                <span class="snip">fit</span>
+                            </div>
+                            <p class = "">
+                                Fit image to the screen.
+                            </p>
+                        </div>
+
+                        <div class = "item side" id = "full">
+                            <div class = "">
+                                <span class="snip">full</span>
+                            </div>
+                            <p class = "">
+                                Toggle fullscreen mode.
+                            </p>
+                        </div>
+
+                        <div class = "item side" id = "exit">
+                            <div class = "">
+                                <span class="snip">exit</span>
+                            </div>
+                            <p class = "">
+                                Close the lightbox window.
+                            </p>
+                        </div>
+                    </div>
+
+                    <h3>Settings Doc</h3>
+                    <div class = "items mt2 mb4">
+                        <div class = "item" id = "blurOnExit">
+                            <div class = "">
+                                <span class="snip">blurOnExit</span> boolean
+                            </div>
+                            <p class = "">
+                                Blurs images when closing & opening the lightbox. This
+                                may affect performance.
+                            </p>
+                        </div>
+
+                        <div class = "item" id = "gestureToZoom">
+                            <div class = "">
+                                <span class="snip">gestureToZoom</span> boolean
+                            </div>
+                            <p class = "">
+                                Enables pinch-to-zoom gesture support on touch devices.
+                            </p>
+                        </div>
+
+                        <div class = "item" id = "swipeToSwitchPC">
+                            <div class = "">
+                                <span class="snip">swipeToSwitchPC</span> boolean
+                            </div>
+                            <p class = "">
+                                Allows swiping to switch between images on desktop devices.
+                                For both PC and mobile, use
+                                <span class="snip">swipeToSwitch</span>.
+                            </p>
+                        </div>
+
+                        <div class = "item" id = "swipeToSwitchMobile">
+                            <div class = "">
+                                <span class="snip">swipeToSwitchMobile</span> boolean
+                            </div>
+                            <p class = "">
+                                Allows swiping to switch between images on mobile devices.
+                                For both PC and mobile, use
+                                <span class="snip">swipeToSwitch</span>.
+                            </p>
+                        </div>
+
+                        <div class = "item" id = "swipeSensitivityPC">
+                            <div class = "">
+                                <span class="snip">swipeSensitivityPC</span> number
+                            </div>
+                            <p class = "">
+                                Adjusts swipe sensitivity on desktop devices.
+                                For both PC and mobile, use
+                                <span class="snip">swipeSensitivity</span>.
+                            </p>
+                        </div>
+
+                        <div class = "item" id = "swipeSensitivityMobile">
+                            <div class = "">
+                                <span class="snip">swipeSensitivityMobile</span> number
+                            </div>
+                            <p class = "">
+                                Adjusts swipe sensitivity on mobile devices.
+                                For both PC and mobile, use
+                                <span class="snip">swipeSensitivity</span>.
+                            </p>
+                        </div>
+
+                        <div class = "item" id = "swipeRangePC">
+                            <div class = "">
+                                <span class="snip">swipeRangePC</span> number
+                            </div>
+                            <p class = "">
+                                Minimum swipe distance required on desktop to trigger a switch.
+                                For both PC and mobile, use
+                                <span class="snip">swipeRange</span>.
+                            </p>
+                        </div>
+
+                        <div class = "item" id = "swipeRangeMobile">
+                            <div class = "">
+                                <span class="snip">swipeRangeMobile</span> number
+                            </div>
+                            <p class = "">
+                                Minimum swipe distance required on mobile to trigger a switch.
+                                For both PC and mobile, use
+                                <span class="snip">swipeRange</span>.
+                            </p>
+                        </div>
+
+                        <div class = "item" id = "swipeResistancePC">
+                            <div class = "">
+                                <span class="snip">swipeResistancePC</span> number
+                            </div>
+                            <p class = "">
+                                Resistance applied to swipes on desktop devices.
+                                For both PC and mobile, use
+                                <span class="snip">swipeResistance</span>.
+                            </p>
+                        </div>
+
+                        <div class = "item" id = "swipeResistanceMobile">
+                            <div class = "">
+                                <span class="snip">swipeResistanceMobile</span> number
+                            </div>
+                            <p class = "">
+                                Resistance applied to swipes on mobile devices.
+                                For both PC and mobile, use
+                                <span class="snip">swipeResistance</span>.
+                            </p>
+                        </div>
+
+                        <div class = "item" id = "hasFooter">
+                            <div class = "">
+                                <span class="snip">hasFooter</span> boolean
+                            </div>
+                            <p class = "">
+                                Shows or hides the footer with image description.
+                            </p>
+                        </div>
+
+                        <div class = "item" id = "hasWordmark">
+                            <div class = "">
+                                <span class="snip">hasWordmark</span> boolean
+                            </div>
+                            <p class = "">
+                                Shows or hides the LiteBokz wordmark in the lightbox.
+                            </p>
+                        </div>
+
+                        <div class = "item" id = "tapToHidePanels">
+                            <div class = "">
+                                <span class="snip">tapToHidePanels</span> boolean
+                            </div>
+                            <p class = "">
+                                Toggles UI panels visibility on tap.
+                            </p>
+                        </div>
+
+                        <div class = "item" id = "tapAwayToClose">
+                            <div class = "">
+                                <span class="snip">tapAwayToClose</span> boolean
+                            </div>
+                            <p class = "">
+                                Closes the lightbox when tapping outside the image.
+                            </p>
+                        </div>
+
+                        <div class = "item" id = "zoomIncrement">
+                            <div class = "">
+                                <span class="snip">zoomIncrement</span> number
+                            </div>
+                            <p class = "">
+                                Zoom increment when using zoom controls.
+                            </p>
+                        </div>
+
+                        <div class = "item" id = "zoomSpeed">
+                            <div class = "">
+                                <span class="snip">zoomSpeed</span> number
+                            </div>
+                            <p class = "">
+                                Controls the speed of zoom when scrolling.
+                            </p>
+                        </div>
+
+                        <div class = "item" id = "zoomMax">
+                            <div class = "">
+                                <span class="snip">zoomMax</span> number
+                            </div>
+                            <p class = "">
+                                Maximum zoom level allowed.
+                            </p>
+                        </div>
+
+                        <div class = "item" id = "zoomMin">
+                            <div class = "">
+                                <span class="snip">zoomMin</span> number
+                            </div>
+                            <p class = "">
+                                Minimum zoom level allowed.
+                            </p>
+                        </div>
+
+                        <div class = "item" id = "renderPixelated">
+                            <div class = "">
+                                <span class="snip">renderPixelated</span> number
+                            </div>
+                            <p class = "">
+                                Image threshold below which pixelated rendering is applied.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <script>
+            const copyDOM = document.querySelector('#copy')
+            const copyContent = copyDOM.querySelectorAll('.icon')
+            const copyCode = copyDOM.previousElementSibling
+
+            const click = (el, cb = () => {}) => {
+                const ev =
+                    'onpointerdown' in window ? 'pointerdown' :
+                    'ontouchstart' in window ? 'touchstart' :
+                    'onmousedown' in window ? 'mousedown' :
+                    'click'
+
+                el.addEventListener(ev, cb)
+            }
+
+            click(copyDOM, () => {
+                navigator.clipboard.writeText(copyCode.textContent.trim())
+
+                copyContent[0].classList.add('none')
+                copyContent[1].classList.remove('none')
+
+                setTimeout(() => {
+                    copyContent[0].classList.remove('none')
+                    copyContent[1].classList.add('none')
+                }, 1000)
+            })
+        </script>
+    </body>
+</html>
