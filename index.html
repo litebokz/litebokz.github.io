@@ -2,7 +2,7 @@
 <html lang="en-gb">
     <head>
         <meta charset = "UTF-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
         <meta name="description" content = "
             Your modern, clean and minimal JavaScript
             lightbox library for viewing images. Embed it into any
@@ -671,6 +671,7 @@
             }
 
             click(copyDOM, () => {
+                if (!navigator.clipboard) alert('Clipboard not supported here 😶')
                 navigator.clipboard.writeText(copyCode.textContent.trim())
 
                 copyContent[0].classList.add('none')
