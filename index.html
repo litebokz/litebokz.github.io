@@ -2,8 +2,8 @@
 <html lang="en-gb">
     <head>
         <meta charset = "UTF-8">
-        <meta name = viewport content = 'width=device-width, initial-scale=1.0'>
-        <meta name = "description" content = "
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta name="description" content = "
             Your modern, clean and minimal JavaScript
             lightbox library for viewing images. Embed it into any
             HTML website for instant image previewing">
@@ -28,10 +28,9 @@
         <link rel="stylesheet" href="temp/content.css">
 
         <script src="litebokz.js"></script>
+        <!-- <script src="https://litebokz.github.io/litebokz/litebokz.js"></script> -->
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-        <script>0</script>
     </head>
     <body>
         <main>
@@ -63,7 +62,7 @@
                         A Lightbox That's Actually Light.
                     </span>
                     <div class = "button-hold mt2">
-                        <button class = "button h7 thin">Try it Now</button>
+                        <a class = "button h7 thin" href="#download">Try it Now</a>
                     </div>
                 </div>
             </div>
@@ -83,7 +82,7 @@
                         <img data-lb-name="2" class="litebokz img" src = "temp/mountains.jpg" alt="A vectorized image of a road & mountains during sunset.">
                     </div>
 
-                    <h2 class="h4 normal"><span></span>All Light, no Load<span></span></h2>
+                    <h2 class="h4 normal" id = "download"><span></span>All Light, no Load<span></span></h2>
                     <div class = "card mt4 mb4 thin">
                         <p class = "">
                             Designed as an alternative to other popular JavaScript
@@ -91,12 +90,13 @@
                             loading speeds, advanced customization & zero setup.
                         </p>
                         <p class="">
-                            The entire library fits in under 5KB zipped.
+                            Use it instantly by linking the script, or download it on
+                            GitHub.
                         </p>
                     </div>
 
                     <div class = "button-hold stacked width align-center mt2 mb3">
-                        <a href="https://github.com/hope41/litebokz" target="_blank" class = "nice-button h7 thin">
+                        <a href="https://github.com/litebokz" target="_blank" class = "nice-button h7 thin">
                             <span>Contribute on GitHub</span>
                         </a>
                         <div class = "thin h7 mt2">consider dropping us a star!</div>
@@ -119,7 +119,7 @@
                                 </p>
                                 <div class = "code-block">
                                     <code>
-                                        &lt;script src="path/to/litebokz.js">&lt;/script>
+                                        &lt;script src="<b>https://litebokz.github.io/litebokz/litebokz.js</b>">&lt;/script>
                                     </code>
                                     <button class="code-button" id="copy">
                                         <div class = "icon-hold">
