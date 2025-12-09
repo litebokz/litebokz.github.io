@@ -140,6 +140,8 @@ class LiteBokz {
         this.camX = 0
         this.camY = 0
 
+        this.swipeComplete = false
+
         this.nameSections = {}
         this.nameDuds = []
 
@@ -299,7 +301,6 @@ class LiteBokz {
 
         // Swiping images
         let isSwiping = null
-        let swipeComplete = false
         let swipeX = 0
 
         const isFitted = () => this.zoomAmt == 1 &&
@@ -332,8 +333,8 @@ class LiteBokz {
             const box = this.image.getBoundingClientRect()
             const onScreen = box.left < innerWidth && box.right > 0
 
-            if (!mouseDown && !buffer) {
-                if (swipeComplete) {
+            if (!buffer) {
+                if (this.swipeComplete) {
                     swipeX *= SWIPE_COMPLETE
 
                     if (!onScreen) {
@@ -362,11 +363,23 @@ class LiteBokz {
                             this.selectImage(this.rightGoalImg)
                         }
 
-                        swipeComplete = false
+                        this.swipeComplete = false
                     }
                 }
 
-                else swipeX *= SWIPE_RESET
+                else if (!mouseDown) {
+                    // const clear = (img) => {
+                    //     img.style.opacity = ''
+                    //     img.style.transform = ''
+                    //     img.style.transition = ''
+                    // }
+
+                    // clear(this.image)
+                    // clear(this.leftTemplateImg)
+                    // clear(this.rightTemplateImg)
+
+                    swipeX *= SWIPE_RESET
+                }
             }
 
             if (Math.abs(swipeX) > .01 && onScreen)
@@ -374,6 +387,7 @@ class LiteBokz {
 
             else {
                 isSwiping = null
+                this.swipeComplete = false
                 this.image.style.opacity = ''
                 this.image.style.transform = ''
                 this.image.style.transition = ''
@@ -403,7 +417,7 @@ class LiteBokz {
             this.updateDisplay()
 
             if (isFitted() && this.settings.swipeToSwitch) {
-                swipeX = vx
+                if (!this.swipeComplete) swipeX = vx
                 if (isSwiping == null) swipe()
             }
 
@@ -425,8 +439,8 @@ class LiteBokz {
                 const boxX = (box.x + box.width / 2) + swipeX * VELOCITY_IMPACT
 
                 if (Math.abs(boxX - innerWidth / 2) > innerWidth * SWITCH_THRESHOLD)
-                    swipeComplete = true
-                else swipeComplete = false
+                    this.swipeComplete = true
+                else this.swipeComplete = false
             }
         })
     }
@@ -663,6 +677,7 @@ class LiteBokz {
         if (index > 0) {
             this.navLeft.classList.remove('hidden')
             this.clickOverride(this.navLeft, () => {
+                if (this.swipeComplete) return
                 if (this.zoomAmt > 1) {
                     this.fitToScreen()
                 }
@@ -681,6 +696,7 @@ class LiteBokz {
         if (index < section.length - 1) {
             this.navRight.classList.remove('hidden')
             this.clickOverride(this.navRight, () => {
+                if (this.swipeComplete) return
                 if (this.zoomAmt > 1) {
                     this.fitToScreen()
                 }
@@ -739,14 +755,16 @@ class LiteBokz {
                 main.tagName.toLowerCase() == 'img' ? main :
                 main.querySelector('img'))
 
-            if (main.dataset.lbName) {
-                img.dataset.lbName = main.dataset.lbName
+            if (img) {
+                if (main.dataset.lbName) {
+                    img.dataset.lbName = main.dataset.lbName
 
-                if (this.nameSections[main.dataset.lbName])
-                    this.nameSections[main.dataset.lbName].push(img)
-                else this.nameSections[main.dataset.lbName] = [img]
+                    if (this.nameSections[main.dataset.lbName])
+                        this.nameSections[main.dataset.lbName].push(img)
+                    else this.nameSections[main.dataset.lbName] = [img]
+                }
+                else this.nameDuds.push(img)
             }
-            else this.nameDuds.push(img)
 
             this.click(main, () => {
                 this.toggleOpen(true)
