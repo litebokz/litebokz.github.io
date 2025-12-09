@@ -6,5 +6,5 @@ To do list
 - [ ] Remove shadow DOM for custom user styling
 - [ ] Define `litebokz.tools` straight away
 - [ ] Remove adding the class `litebokz` to the customization script tag
-- [ ] Fix bug where spamming navigation arrows can sometimes overshoot the images
+- [ ] Fix bug where spamming navigation arrows can sometimes overshoot the images / last image fails to load in time
 - [ ] Add litebokz image to Joachim Ford Sites
