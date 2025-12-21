@@ -8,3 +8,4 @@ To do list
 - [ ] Remove adding the class `litebokz` to the customization script tag
 - [x] Fix bug where spamming navigation arrows can sometimes overshoot the images / last image fails to load in time
 - [ ] Add litebokz image to Joachim Ford Sites
+- [ ] Render low res temporary images to maximise performance
